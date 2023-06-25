@@ -1,32 +1,7 @@
-<script setup>
-import axios from "axios";      
-  
-
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-}) 
-
-axios.post("/huawei/v1.0/cdn/content/refresh-tasks", {
-  "refresh_task": {
-    "type": "file",
-    "urls": [
-      "https://www.baidu.com/1.txt"
-    ]
-  }
-},{
-  headers:{
-    "x-auth-token":"xxx"
-  }
-}).then(res => {
-  console.log(res);
-}).catch(err => {
-  console.log(err);
-});
-
-
+<script setup lang="ts">
+defineProps<{
+  msg: string
+}>()
 </script>
 
 <template>
@@ -35,7 +10,7 @@ axios.post("/huawei/v1.0/cdn/content/refresh-tasks", {
     <h3>
       You’ve successfully created a project with
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
+      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
     </h3>
   </div>
 </template>
@@ -44,6 +19,7 @@ axios.post("/huawei/v1.0/cdn/content/refresh-tasks", {
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
+  position: relative;
   top: -10px;
 }
 
@@ -57,7 +33,6 @@ h3 {
 }
 
 @media (min-width: 1024px) {
-
   .greetings h1,
   .greetings h3 {
     text-align: left;
